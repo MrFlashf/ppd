@@ -54,3 +54,6 @@ power_list list = map power list
 power_no_map_start list = power_no_map list []
 power_no_map [] new_list = new_list
 power_no_map list new_list = power_no_map (tail list) (new_list ++ [power (head list)])
+
+-- 8)
+ count char list = filter
