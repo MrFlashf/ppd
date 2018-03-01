@@ -22,3 +22,8 @@ sec_to_last list = list !! (length list - 2)
 custom_reverse [] mynew = mynew
 custom_reverse myhead mynew = custom_reverse (tail myhead) ([head myhead] ++ mynew)
 custom_reverse_start list = custom_reverse list []
+
+-- 4)
+last_element list = list !! (length list - 1)
+
+edge_reverse list = (last_element list) : (tail (take (length list - 1) list)) ++ [head list]
