@@ -56,4 +56,27 @@ power_no_map [] new_list = new_list
 power_no_map list new_list = power_no_map (tail list) (new_list ++ [power (head list)])
 
 -- 8)
- count char list = filter
+count char list = length (filter(==char) list)
+
+-- 9) 
+rep item n = replicate n item
+
+-- 10)
+-- funkcja korzysta z funkcji z zadania 3
+palindrom list | custom_reverse_start list == list = True | otherwise = False
+
+-- 11)
+delete_first _ [] = []
+delete_first el (b:bc) | el == b = bc | otherwise = b : delete_first el bc
+
+-- 12)
+delete_n_element :: Int -> [a] -> [a]
+delete_n_element _ [] = []
+delete_n_element n (a:as) | n == 0 = as | otherwise = a : delete_n_element (n-1) as
+
+-- 13)
+contains a list | elem a list = False | otherwise = True
+check_list list_a list_b | length(filter (\el->(contains el list_b)) list_a)==0 = True | otherwise = False
+
+-- 14)
+change_tuples list = map (\(el1, el2)->(el2, el1)) list
