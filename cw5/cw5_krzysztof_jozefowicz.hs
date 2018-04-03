@@ -1,4 +1,4 @@
-import Data.Typeable
+import Data.List
 import Mojzbior
 
 -- zad 1)
@@ -56,3 +56,18 @@ shortest (Node a l r) = 1 + min (shortest l) (shortest r)
 -- b)
 longest Empty = 0
 longest (Node a l r) = 1 + max (longest l) (longest r)
+
+-- zad 5)
+-- pair :: [a] -> [(a, Int)]
+pair [] = []
+pair list = pair_helper list []
+
+pair_helper :: (Eq a) => [a] -> [(a, Int)] -> [(a, Int)]
+pair_helper [] result = result
+pair_helper source result = pair_helper filtered_source (result ++ [(next_elem, quantity)]) where
+  next_elem = head source
+  filtered_source = filter (\x -> x /= head_source) source
+  quantity = counter head_source source
+
+counter :: (Eq a) => a -> [a] -> Int
+counter element list = length (filter (\x -> x == element) list)
