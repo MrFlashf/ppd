@@ -58,7 +58,7 @@ longest Empty = 0
 longest (Node a l r) = 1 + max (longest l) (longest r)
 
 -- zad 5)
--- pair :: [a] -> [(a, Int)]
+pair :: (Eq a) => [a] -> [(a, Int)]
 pair [] = []
 pair list = pair_helper list []
 
