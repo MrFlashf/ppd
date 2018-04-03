@@ -66,8 +66,8 @@ pair_helper :: (Eq a) => [a] -> [(a, Int)] -> [(a, Int)]
 pair_helper [] result = result
 pair_helper source result = pair_helper filtered_source (result ++ [(next_elem, quantity)]) where
   next_elem = head source
-  filtered_source = filter (\x -> x /= head_source) source
-  quantity = counter head_source source
+  filtered_source = filter (\x -> x /= head source) source
+  quantity = counter (head source) source
 
 counter :: (Eq a) => a -> [a] -> Int
 counter element list = length (filter (\x -> x == element) list)
