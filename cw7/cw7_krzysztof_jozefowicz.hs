@@ -56,4 +56,13 @@ get_dist (a,b) = sqrt ((a-0)**2 + (b-0)**2)
 
 -- zad 15)
 primes = filterPrime [2..]
-  where filterPrime (x:xs) = x : filterPrime [x | x <- xs, x mod x /= 0]
+  where filterPrime (p:xs) = p : filterPrime [x | x <- xs, x `mod` p /= 0]
+
+-- a)
+pierwsze = zip indexes primes
+  where indexes = [1..]
+
+
+-- b)
+p n = primes !! (n-1)
+
